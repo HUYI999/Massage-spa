@@ -1,7 +1,2 @@
-
-module.exports = {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  },
-};
+/** Minimal PostCSS config: no Tailwind, no external plugins */
+module.exports = { plugins: {} };
