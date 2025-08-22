@@ -1,15 +1,9 @@
 name: Deploy to GitHub Pages
 on:
-  push:
-    branches: [ main ]
+  push: { branches: [ main ] }
   workflow_dispatch:
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+permissions: { contents: read, pages: write, id-token: write }
+concurrency: { group: "pages", cancel-in-progress: false }
 
 jobs:
   build:
@@ -17,23 +11,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
+        with: { node-version: 20, cache: npm }
       - run: npm install
-      - run: npm run build   # Next 15 + output:export 会把静态文件写到 ./out
+      - run: npm run build
         env:
           GITHUB_ACTIONS: true
+          BASE_PATH: ""   # ★ 自定义域名 => 不要 basePath
       - uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./out
+        with: { path: ./out }
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    environment: { name: github-pages, url: ${{ steps.deployment.outputs.page_url }} }
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
