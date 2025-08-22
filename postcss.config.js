@@ -1,2 +1,7 @@
-/** Minimal PostCSS config: no Tailwind, no external plugins */
-module.exports = { plugins: {} };
+/** PostCSS for Tailwind */
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
