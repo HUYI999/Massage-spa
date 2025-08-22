@@ -1,12 +1,2 @@
-
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-};
+/** Minimal PostCSS config: no Tailwind, no external plugins */
+module.exports = { plugins: {} };
