@@ -7,7 +7,7 @@ export default function Contact() {
         <div className="card">
           <div className="text-lg font-semibold">门店信息</div>
           <ul className="mt-3 text-sm text-neutral-700 space-y-2">
-            <li>地址：Shop 1, 123 King St, Newcastle NSW</li>
+            <li>地址：446Minmi Rd, Newcastle NSW</li>
             <li>电话：<a href="tel:0400-000-000" className="underline">0400 000 000</a>（可短信）</li>
             <li>营业：周一–周日 10:00–20:00</li>
             <li>停车：门口2小时街边停车 · 附近停车场步行3分钟</li>
